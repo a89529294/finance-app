@@ -9,7 +9,8 @@ export const runtime = "edge";
 
 const app = new Hono().basePath("/api");
 
-app.use("*", clerkMiddleware()).route("/authors", authors);
+// app.use("*", clerkMiddleware()).route("/authors", authors);
+app.get("/", (c) => c.json({ hello: "world" }));
 
 export const GET = handle(app);
 export const POST = handle(app);
